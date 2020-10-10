@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -32,7 +32,7 @@
         <item name="imageTransparentOverlay">@color/pantoneTransparent</item>
     </style>
 
-    <style name="Baru" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Baru" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/facebook</item>
         <item name="colorPrimaryDark">@color/facebookDark</item>
         <item name="tabBackgroundColor">@color/facebook</item>
@@ -43,5 +43,14 @@
         <item name="detailBackground">@color/facebook2</item>
         <item name="imageTransparentOverlay">@color/facebookTransparent</item>
     </style>
+
+    <style name="Baru.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Baru.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Baru.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

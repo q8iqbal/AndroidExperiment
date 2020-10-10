@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.androidexperiment.R
 import com.example.androidexperiment.base.BaseFragment
+import com.example.androidexperiment.base.BasePresenter
+import com.example.androidexperiment.util.AppPreference
 
-class ProfileFragment : BaseFragment(), ProfileContract.View{
+class ProfileFragment : BaseFragment() {
 
-    private var mPresenter : ProfileContract.Presenter? = null
     private lateinit var mRootView : View
     private lateinit var tvEmail : TextView
     private lateinit var tvPassword : TextView
@@ -24,24 +25,12 @@ class ProfileFragment : BaseFragment(), ProfileContract.View{
         mRootView = inflater.inflate(R.layout.fragment_profile, container, false)
         tvEmail = mRootView.findViewById(R.id.tv_name)
         tvPassword = mRootView.findViewById(R.id.tv_password)
-        displayIntent()
-        attachPresenter(ProfilePresenter(this))
+        showData()
         return mRootView
     }
 
-    override fun displayIntent() {
-        val intent = activity?.intent
-        tvEmail.text = intent?.getStringExtra("email")
-        tvPassword.text = intent?.getStringExtra("password")
+    private fun showData() {
+        tvEmail.text = AppPreference.read(AppPreference.EMAIL, "")
+        tvPassword.text = AppPreference.read(AppPreference.PASSWORD, "")
     }
-
-    override fun attachPresenter(presenter: ProfileContract.Presenter) {
-        mPresenter = presenter
-    }
-
-    override fun detachPresenter() {
-        mPresenter?.onDestroy()
-        mPresenter = null
-    }
-
 }

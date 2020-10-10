@@ -1,27 +1,25 @@
 package com.example.androidexperiment.base
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.FragmentActivity
 import com.example.androidexperiment.R
+import com.example.androidexperiment.module.profile.ProfileActivity
 
-abstract class BaseActivity : FragmentActivity() {
+abstract class BaseActivity : AppCompatActivity(){
 
     protected var currentFragment : BaseFragment? = null
     protected var tvToolbarTitle: TextView? = null
     protected var flFragmentContainer: FrameLayout? = null
     protected var btBack: ImageButton? = null
+    protected var btProfile: ImageButton? = null
     protected var vMenuBarShadow: View? = null
-    protected var rlActivityFragmentHolder: RelativeLayout? = null
+    protected var rlActivityFragmentHolder: ConstraintLayout? = null
 
-    abstract fun initializeFragment();
+    abstract fun initializeFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +27,21 @@ abstract class BaseActivity : FragmentActivity() {
         initializeFragment()
     }
 
-    fun initializeView(){
+    protected fun initializeView(){
         setContentView(R.layout.base_activity)
-        tvToolbarTitle = findViewById(R.id.tvToolbarTitle) as TextView
-        flFragmentContainer = findViewById(R.id.flFragmentContainer) as FrameLayout
-        btBack = findViewById(R.id.btBack) as ImageButton
+
         vMenuBarShadow = findViewById(R.id.vMenuBarShadow)
-        rlActivityFragmentHolder = findViewById(R.id.rlActivityFragmentHolder) as RelativeLayout
-        btBack!!.setOnClickListener { onBackPressed() }
+        tvToolbarTitle = findViewById<TextView>(R.id.tvToolbarTitle)
+        flFragmentContainer = findViewById<FrameLayout>(R.id.flFragmentContainer)
+        rlActivityFragmentHolder = findViewById<ConstraintLayout>(R.id.clActivityFragmentHolder)
+        btBack = findViewById<ImageButton>(R.id.btBack)
+        btProfile = findViewById<ImageButton>(R.id.bt_Profile)
+        btBack?.setOnClickListener { onBackPressed() }
+        btProfile?.setOnClickListener { redirect() }
+    }
+
+    protected fun setTitle(title : String){
+        tvToolbarTitle?.text = title
     }
 
     @JvmName("setCurrentFragment1")
@@ -46,5 +51,10 @@ abstract class BaseActivity : FragmentActivity() {
         fragmentTransaction.add(R.id.flFragmentContainer, fragment)
         fragmentTransaction.commit()
         currentFragment = fragment
+    }
+
+    private fun redirect(){
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
     }
 }

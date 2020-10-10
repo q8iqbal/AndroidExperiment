@@ -2,6 +2,7 @@ package com.example.androidexperiment.module.login
 
 import android.view.View
 import com.example.androidexperiment.base.BaseActivity
+import com.example.androidexperiment.util.AppPreference
 
 class LoginActivity : BaseActivity(){
 
@@ -9,7 +10,10 @@ class LoginActivity : BaseActivity(){
 
     override fun initializeFragment() {
         initializeView()
-        btBack!!.visibility = View.GONE
+        setTitle("Sign In")
+        AppPreference.init(applicationContext)
+        btBack?.visibility = View.GONE
+        btProfile?.visibility = View.GONE
         loginFragment = LoginFragment()
         setCurrentFragment(loginFragment)
     }

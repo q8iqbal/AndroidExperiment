@@ -11,11 +11,12 @@
         android:theme="@style/Baru">
         <activity android:name=".module.login.LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.profile.ProfileActivity"/>
+        <activity android:name=".module.profile.ProfileActivity" />
+        <activity android:name=".module.dashboard.DashboardActivity"/>
     </application>
 
 </manifest>
