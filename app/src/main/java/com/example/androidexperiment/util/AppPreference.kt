@@ -1,6 +1,5 @@
 package com.example.androidexperiment.util
 
-import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 

@@ -1,18 +1,14 @@
-package com.example.androidexperiment.module.dashboard
+package com.example.androidexperiment.ui.dashboard
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidexperiment.R
 import com.example.androidexperiment.model.Task
 import kotlinx.android.synthetic.main.item_task.view.*
-import java.text.SimpleDateFormat
 
 class DashboardAdapter(
     private var items : ArrayList<Task>,
@@ -32,7 +28,7 @@ class DashboardAdapter(
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
 
         holder.tvTitle.text = items[position].title
-        holder.tvCreatedAt.text = items[position].createdAt
+        //holder.tvCreatedAt.text = items[position].createdAt
         holder.tvDescription.text = items[position].description
     }
 

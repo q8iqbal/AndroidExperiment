@@ -1,4 +1,4 @@
-package com.example.androidexperiment.module.dashboard
+package com.example.androidexperiment.ui.dashboard
 
 import android.content.Context
 import android.os.Bundle
@@ -6,17 +6,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidexperiment.R
 import com.example.androidexperiment.base.BaseFragment
 import com.example.androidexperiment.model.Task
-import com.example.androidexperiment.module.dashboard.dialog.CreateTask
-import com.example.androidexperiment.module.dashboard.dialog.TaskListener
+import com.example.androidexperiment.ui.dashboard.dialog.CreateTask
+import com.example.androidexperiment.ui.dashboard.dialog.TaskListener
+import com.example.androidexperiment.ui.dashboard.dialog.UpdateTask
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.Create{
+class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.Create, TaskListener.Update, TaskListener.Delete{
 
     private var mPresenter : DashboardContract.Presenter? = null
     private lateinit var mView : View
@@ -60,13 +60,29 @@ class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.
 
     private fun showTaskDialog() {
         val dialog = CreateTask()
-        dialog.addListener(this)
+//        dialog.addListener(this)
         dialog.show(requireActivity().supportFragmentManager , dialog.TAG)
 
     }
 
+    private fun showUpdateDialog(){
+        val dialog = UpdateTask()
+//        dialog.ad
+    }
+
+    private fun showDeleteDialog(){
+        val dialog = DeleteTask()
+    }
+
     override fun createTask(title: String, desc: String) {
-        Log.e("oppai", "aks")
         mPresenter?.createTask(title,desc)
+    }
+
+    override fun updateTask() {
+        mPresenter?.updateTask()
+    }
+
+    override fun DeleteTask() {
+        mPresenter?.deleteTask()
     }
 }

@@ -1,4 +1,4 @@
-package com.example.androidexperiment.module.dashboard
+package com.example.androidexperiment.ui.dashboard
 
 import com.example.androidexperiment.base.BaseActivity
 

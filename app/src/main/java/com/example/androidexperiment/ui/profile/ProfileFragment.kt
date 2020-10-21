@@ -1,4 +1,4 @@
-package com.example.androidexperiment.module.profile
+package com.example.androidexperiment.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.androidexperiment.R
 import com.example.androidexperiment.base.BaseFragment
-import com.example.androidexperiment.base.BasePresenter
 import com.example.androidexperiment.util.AppPreference
 
 class ProfileFragment : BaseFragment() {

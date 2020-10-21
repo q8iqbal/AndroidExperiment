@@ -1,8 +1,7 @@
-package com.example.androidexperiment.module.login
+package com.example.androidexperiment.ui.login
 
 import android.content.Intent
-import android.content.SharedPreferences
-import com.example.androidexperiment.module.dashboard.DashboardActivity
+import com.example.androidexperiment.ui.dashboard.DashboardActivity
 import com.example.androidexperiment.util.AppPreference
 
 class LoginPresenter(private var mView : LoginFragment?) : LoginContract.Presenter {

@@ -1,8 +1,9 @@
-package com.example.androidexperiment.module.login
+package com.example.androidexperiment.ui.login
 
 import android.view.View
 import com.example.androidexperiment.base.BaseActivity
 import com.example.androidexperiment.util.AppPreference
+import kotlinx.android.synthetic.main.base_toolbar_layout.*
 
 class LoginActivity : BaseActivity(){
 
@@ -12,8 +13,8 @@ class LoginActivity : BaseActivity(){
         initializeView()
         setTitle("Sign In")
         AppPreference.init(applicationContext)
-        btBack?.visibility = View.GONE
-        btProfile?.visibility = View.GONE
+        btBack.visibility = View.GONE
+        bt_Profile.visibility = View.GONE
         loginFragment = LoginFragment()
         setCurrentFragment(loginFragment)
     }

@@ -1,4 +1,4 @@
-package com.example.androidexperiment.module.login
+package com.example.androidexperiment.ui.login
 
 import android.content.Intent
 import android.os.Bundle
