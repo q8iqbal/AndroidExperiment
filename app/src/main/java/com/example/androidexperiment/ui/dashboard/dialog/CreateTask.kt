@@ -32,15 +32,6 @@ class CreateTask : BaseDialog<TaskListener.Create>() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        try {
-            listener = context as TaskListener.Create
-        } catch (error: ClassCastException) {
-            throw ClassCastException(error.message)
-        }
-    }
-
     fun createTask(){
         val title = inputLayoutTitle.editText?.text.toString()
         val desc = inputLayoutDescription.editText?.text.toString()

@@ -1,14 +1,17 @@
 package com.example.androidexperiment.ui.dashboard.dialog
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androidexperiment.R
+import com.example.androidexperiment.model.Task
 import kotlinx.android.synthetic.main.dialog_create_task.*
 
-class UpdateTask : BaseDialog<TaskListener.Update>(){
+class UpdateTask(var task : Task) : BaseDialog<TaskListener.Update>(){
+
+    val TAG = "update_dialog"
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,20 +30,8 @@ class UpdateTask : BaseDialog<TaskListener.Update>(){
         }
 
         bt_create_task_ok.setOnClickListener {
-            updateTask()
+            listener?.updateTask(task , tie_task_title.text.toString() , tie_task_title.text.toString() )
+            dismiss()
         }
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        try {
-            listener = context as TaskListener.Update
-        } catch (error: ClassCastException) {
-            throw ClassCastException(error.message)
-        }
-    }
-
-    private fun updateTask() {
-
     }
 }

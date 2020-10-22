@@ -12,13 +12,14 @@ import com.example.androidexperiment.R
 import com.example.androidexperiment.base.BaseFragment
 import com.example.androidexperiment.model.Task
 import com.example.androidexperiment.ui.dashboard.dialog.CreateTask
+import com.example.androidexperiment.ui.dashboard.dialog.DeleteTask
 import com.example.androidexperiment.ui.dashboard.dialog.TaskListener
 import com.example.androidexperiment.ui.dashboard.dialog.UpdateTask
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.*
 
-class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.Create, TaskListener.Update, TaskListener.Delete{
+class DashboardFragment : BaseFragment() , TaskListener.Create, TaskListener.Update, TaskListener.Delete{
 
-    private var mPresenter : DashboardContract.Presenter? = null
     private lateinit var mView : View
     private lateinit var mAdapter: DashboardAdapter
     private lateinit var rvTaksList : RecyclerView
@@ -31,8 +32,7 @@ class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         mView = inflater.inflate(R.layout.fragment_dashboard,container,false)
-        mAdapter = DashboardAdapter(arrayListOf(), activity as Context)
-        mPresenter = DashboardPresenter(this)
+        mAdapter = DashboardAdapter(arrayListOf(), getActivity() as Context, this)
         rvTaksList = mView.findViewById<RecyclerView>(R.id.rv_task_list)
         fabAddTask = mView.findViewById<FloatingActionButton>(R.id.fab_add_task)
         fabAddTask.setOnClickListener{
@@ -45,44 +45,41 @@ class DashboardFragment : BaseFragment(), DashboardContract.View , TaskListener.
         return mView
     }
 
-    override fun addTask(task: Task) {
-        mAdapter.addTask(task)
-    }
-
-    override fun attachPresenter(presenter: DashboardContract.Presenter) {
-        mPresenter = presenter
-    }
-
-    override fun detachPresenter() {
-        mPresenter?.onDestroy()
-        mPresenter = null
-    }
-
     private fun showTaskDialog() {
         val dialog = CreateTask()
-//        dialog.addListener(this)
+        dialog.addListener(this)
+        Log.e("oppai", "oppai")
         dialog.show(requireActivity().supportFragmentManager , dialog.TAG)
 
     }
 
-    private fun showUpdateDialog(){
-        val dialog = UpdateTask()
-//        dialog.ad
+    fun showUpdateDialog(task: Task) {
+        val dialog = UpdateTask(task)
+        dialog.addListener(this)
+        dialog.show(requireActivity().supportFragmentManager, dialog.TAG)
     }
 
-    private fun showDeleteDialog(){
-        val dialog = DeleteTask()
+    fun showDeleteDialog(task: Task) {
+        val dialog = DeleteTask(task)
+        dialog.addListener(this)
+        dialog.show(requireActivity().supportFragmentManager, dialog.TAG)
     }
 
     override fun createTask(title: String, desc: String) {
-        mPresenter?.createTask(title,desc)
+        val task = Task(title,desc, Date().toString())
+        mAdapter.addTask(task)
     }
 
-    override fun updateTask() {
-        mPresenter?.updateTask()
+    override fun updateTask(
+        task: Task,
+        title: String,
+        desc: String
+    ) {
+        val newTask = Task(title, desc, Date().toString())
+        mAdapter.updateTask(task , newTask)
     }
 
-    override fun DeleteTask() {
-        mPresenter?.deleteTask()
+    override fun deleteTask(task : Task) {
+        mAdapter.deleteTask(task)
     }
 }
