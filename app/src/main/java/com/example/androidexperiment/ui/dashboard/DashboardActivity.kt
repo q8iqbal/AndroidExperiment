@@ -1,10 +1,11 @@
 package com.example.androidexperiment.ui.dashboard
 
 import com.example.androidexperiment.base.BaseActivity
+import com.example.androidexperiment.base.BaseFragment
 
 class DashboardActivity : BaseActivity(){
 
-    lateinit var dashboardFragment : DashboardFragment
+    lateinit var dashboardFragment : BaseFragment<*>
 
     override fun initializeFragment() {
         initializeView()

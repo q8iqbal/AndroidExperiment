@@ -51,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCreatedAt" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_created_at" />
 
         <ImageButton
             android:id="@+id/bt_task_del"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_task_desc" />
 
         <TextView
-            android:id="@+id/tvCreatedAt"
+            android:id="@+id/tv_created_at"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

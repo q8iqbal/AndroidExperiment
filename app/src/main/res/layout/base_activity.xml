@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/layutToolbar"
+        android:id="@+id/layout_toolbar"
         layout="@layout/base_toolbar_layout"
         app:layout_constraintBottom_toTopOf="@+id/flFragmentContainer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +22,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layutToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

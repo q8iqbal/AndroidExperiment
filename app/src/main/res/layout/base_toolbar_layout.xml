@@ -18,7 +18,7 @@
             android:gravity="center|start">
 
             <TextView
-                android:id="@+id/tvToolbarTitle"
+                android:id="@+id/tv_toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
@@ -32,22 +32,22 @@
                 android:textSize="18sp" />
 
             <ImageButton
-                android:id="@+id/bt_Profile"
+                android:id="@+id/bt_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#00FFFFFF"
-                app:srcCompat="@drawable/ic_profile_white" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_profile_white" />
 
             <ImageButton
-                android:id="@+id/btBack"
+                android:id="@+id/bt_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:adjustViewBounds="false"
                 android:background="@android:color/transparent"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:paddingRight="16dp"
+                android:cropToPadding="false"
+                android:paddingEnd="16dp"
                 android:src="@drawable/ic_log_out"
                 android:tint="?attr/textWhiteColor" />
         </LinearLayout>

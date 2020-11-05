@@ -4,12 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidexperiment.R
+import com.example.androidexperiment.databinding.BaseActivityBinding
 import com.example.androidexperiment.ui.profile.ProfileActivity
-import kotlinx.android.synthetic.main.base_toolbar_layout.*
 
 abstract class BaseActivity : AppCompatActivity(){
 
-    protected var currentFragment : BaseFragment? = null
+    protected var currentFragment : BaseFragment<*>? = null
+    protected lateinit var binding: BaseActivityBinding
 
     abstract fun initializeFragment()
 
@@ -20,18 +21,25 @@ abstract class BaseActivity : AppCompatActivity(){
     }
 
     protected fun initializeView(){
-        setContentView(R.layout.base_activity)
+        binding = BaseActivityBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        btBack.setOnClickListener { onBackPressed() }
-        bt_Profile.setOnClickListener { redirect() }
+        binding.layoutToolbar.btProfile.setOnClickListener {
+            this.redirect()
+        }
+
+        binding.layoutToolbar.btBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     protected fun setTitle(title : String){
-        tvToolbarTitle.text = title
+        binding.layoutToolbar.tvToolbarTitle.text = title
     }
 
     @JvmName("setCurrentFragment1")
-    fun setCurrentFragment(fragment: BaseFragment){
+    fun setCurrentFragment(fragment: BaseFragment<*>){
         val fragmenManager = supportFragmentManager
         val fragmentTransaction = fragmenManager.beginTransaction()
         fragmentTransaction.add(R.id.flFragmentContainer, fragment)

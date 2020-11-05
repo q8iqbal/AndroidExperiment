@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androidexperiment.R
+import com.example.androidexperiment.base.BaseDialog
 import com.example.androidexperiment.model.Task
 import kotlinx.android.synthetic.main.dialog_create_task.*
 
@@ -23,14 +24,14 @@ class UpdateTask(var task : Task) : BaseDialog<TaskListener.Update>(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tv_add_task_title.text = "Update Bambang"
+        tv_title.text = "Update Bambang"
 
-        bt_create_task_cancel.setOnClickListener {
+        bt_cancel.setOnClickListener {
             dismiss()
         }
 
-        bt_create_task_ok.setOnClickListener {
-            listener?.updateTask(task , tie_task_title.text.toString() , tie_task_title.text.toString() )
+        bt_ok.setOnClickListener {
+            listener?.updateTask(task , et_task_title.text.toString() , et_task_title.text.toString() )
             dismiss()
         }
     }

@@ -1,11 +1,11 @@
 package com.example.androidexperiment.ui.dashboard.dialog
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androidexperiment.R
+import com.example.androidexperiment.base.BaseDialog
 import kotlinx.android.synthetic.main.dialog_create_task.*
 
 class CreateTask : BaseDialog<TaskListener.Create>() {
@@ -22,12 +22,14 @@ class CreateTask : BaseDialog<TaskListener.Create>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tv_add_task_title.text = "Tambah Bambang"
-        bt_create_task_ok.setOnClickListener {
+
+        tv_title.text = "Tambah Bambang"
+
+        bt_ok.setOnClickListener {
             createTask()
         }
 
-        bt_create_task_cancel.setOnClickListener {
+        bt_cancel.setOnClickListener {
             dismiss()
         }
     }

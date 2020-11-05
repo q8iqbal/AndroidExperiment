@@ -1,4 +1,4 @@
-package com.example.androidexperiment.ui.dashboard.dialog
+package com.example.androidexperiment.base
 
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment

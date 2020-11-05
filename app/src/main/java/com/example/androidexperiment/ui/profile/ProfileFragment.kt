@@ -9,7 +9,7 @@ import com.example.androidexperiment.R
 import com.example.androidexperiment.base.BaseFragment
 import com.example.androidexperiment.util.AppPreference
 
-class ProfileFragment : BaseFragment() {
+class ProfileFragment : BaseFragment<Any>() {
 
     private lateinit var mRootView : View
     private lateinit var tvEmail : TextView

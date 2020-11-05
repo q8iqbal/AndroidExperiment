@@ -1,7 +1,6 @@
-package com.example.androidexperiment.ui.dashboard
+package com.example.androidexperiment.util
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidexperiment.R
 import com.example.androidexperiment.model.Task
+import com.example.androidexperiment.ui.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.item_task.view.*
 
 class DashboardAdapter(
@@ -22,7 +22,7 @@ class DashboardAdapter(
     class DashboardViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val tvTitle: TextView = view.tv_task_tittle
         val tvDescription: TextView = view.tv_task_desc
-        val tvCreatedAt: TextView = view.tvCreatedAt
+        val tvCreatedAt: TextView = view.tv_created_at
         val cvItemTask : CardView = view.cv_item_task
         val btDelete : ImageButton = view.bt_task_del
     }

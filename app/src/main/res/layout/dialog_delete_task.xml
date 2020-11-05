@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_Dialog_Title"
+        android:id="@+id/tv_dialog_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_Title"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,39 +26,39 @@
         android:text="title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_Dialog_Title" />
+        app:layout_constraintTop_toTopOf="@id/tv_dialog_title" />
 
     <TextView
-        android:id="@+id/tv_Desc"
+        android:id="@+id/tv_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_Title" />
+        app:layout_constraintTop_toTopOf="@id/tv_title" />
 
     <Button
-        android:id="@+id/bt_Ok"
+        android:id="@+id/bt_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="DELETE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_Cancel"
+        app:layout_constraintEnd_toStartOf="@+id/bt_cancel"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Desc"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
         app:layout_constraintVertical_bias="0.02" />
 
     <Button
-        android:id="@+id/bt_Cancel"
+        android:id="@+id/bt_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:text="CANCEL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Desc"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
         app:layout_constraintVertical_bias="0.02" />
 </androidx.constraintlayout.widget.ConstraintLayout>
